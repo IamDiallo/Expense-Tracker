@@ -12,7 +12,7 @@
 
     <TextView
         android:id="@+id/aNametxt"
-        android:text="Android Name"
+        android:text="Type"
         android:textSize="20sp"
         android:layout_marginTop="8dp"
         android:maxLines="1"
@@ -26,7 +26,7 @@
 
     <TextView
         android:id="@+id/aVersiontxt"
-        android:text="Android Version"
+        android:text="date"
         android:textSize="14sp"
         android:maxLines="1"
         android:layout_width="match_parent"

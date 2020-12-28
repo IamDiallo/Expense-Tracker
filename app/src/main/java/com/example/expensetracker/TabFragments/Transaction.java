@@ -80,12 +80,12 @@ public class Transaction extends Fragment implements View.OnClickListener, Adapt
         addButton.setOnClickListener(this);
         adress.setOnClickListener(this);
 
-        categorySpinner = v.findViewById(R.id.categorySpinner);
+        categorySpinner = v.findViewById(R.id.spinner);
 
         String[] arraySpinner = new String[] {};
 
-        arrayAdapter = new ArrayAdapter(this.getActivity(),android.R.layout.simple_spinner_item,arraySpinner);
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        arrayAdapter = new ArrayAdapter(this.getActivity(),R.layout.spinner_text, arraySpinner);
+        arrayAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown);
         categorySpinner.setAdapter(arrayAdapter);
         categorySpinner.setOnItemSelectedListener(this);
 
@@ -134,7 +134,7 @@ public class Transaction extends Fragment implements View.OnClickListener, Adapt
     public void onClick(View v) {
         //do what you want to do when button is clicked
 
-        String arraySpinner[]; // = new String[] {};
+        String arraySpinner[];
 
         switch (v.getId()) {
             case R.id.incomeToggleButton:
@@ -154,8 +154,8 @@ public class Transaction extends Fragment implements View.OnClickListener, Adapt
                         "Refund",
                 };
 
-                arrayAdapter = new ArrayAdapter(this.getActivity(),android.R.layout.simple_spinner_item, arraySpinner);
-                arrayAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+                arrayAdapter = new ArrayAdapter(this.getActivity(),R.layout.spinner_text, arraySpinner);
+                arrayAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown);
                 categorySpinner.setPrompt("Income");
                 categorySpinner.setAdapter(arrayAdapter);
                 break;
@@ -172,14 +172,12 @@ public class Transaction extends Fragment implements View.OnClickListener, Adapt
                 arraySpinner = new String[] {
                         "Select Category",
                         "Food",
-                        "Travel",
+                        "Entertainment",
                         "Shopping",
-                        "Groceries",
-                        "Entertainment"
                 };
 
-                arrayAdapter = new ArrayAdapter(this.getActivity(),android.R.layout.simple_spinner_item, arraySpinner);
-                arrayAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+                arrayAdapter = new ArrayAdapter(this.getActivity(),R.layout.spinner_text, arraySpinner);
+                arrayAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown);
                 categorySpinner.setAdapter(arrayAdapter);
                 break;
             case R.id.addButton:
@@ -238,8 +236,9 @@ public class Transaction extends Fragment implements View.OnClickListener, Adapt
                 adress.setHint("Tap to add Change add location");
                 break;
             case R.id.adress:
-                    Intent intent = new Intent(getActivity(), MapsActivity.class);
-                    startActivityForResult(intent, LAUNCH_MAPS_ACTIVITY);
+                Intent intent = new Intent(getActivity(), MapsActivity.class);
+                startActivityForResult(intent, LAUNCH_MAPS_ACTIVITY);
+                break;
         }
     }
 

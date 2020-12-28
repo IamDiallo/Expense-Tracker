@@ -187,7 +187,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void next(View view) {
         // Create an intent for the activity
-        Intent i = new Intent(this, Transaction.class);
+        Intent i = new Intent(this, MainActivity.class);
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
         try {
             List<Address> addresses = geocoder.getFromLocation(mLocation.getLatitude(),  mLocation.getLongitude(), 1);

@@ -83,7 +83,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         ArrayList<Expense> l = new ArrayList<>();
 
         // Select all query
-        String selectQuery = "SELECT * FROM " + TABLE_EXPENSE;
+        String selectQuery = "SELECT * FROM " + TABLE_EXPENSE+ " ORDER BY id DESC";
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -147,6 +147,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_EXPENSE);
         db.close();
+    }
+
+    public void deleteItem(String getID) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE from  expense WHERE id= '" +getID+ "'");
     }
 
 }

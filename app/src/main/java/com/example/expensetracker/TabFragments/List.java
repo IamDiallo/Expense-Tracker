@@ -21,6 +21,7 @@ import com.example.expensetracker.R;
 import com.example.expensetracker.ViewExpense;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,26 +60,36 @@ public class List extends Fragment {
         lView = (ListView) v.findViewById(R.id.androidList);
         db = new DatabaseHandler(getContext());
         final java.util.List<Expense> expenses = db.getAllRows();
-        java.util.List<String> version = new ArrayList<>();
-        java.util.List<String> versionNumber = new ArrayList<>();
+        java.util.List<String> types = new ArrayList<>();
+        java.util.List<String> dates = new ArrayList<>();
         java.util.List<String> images = new ArrayList<>();
         for (Expense e : expenses) {
-            version.add(e.getType());
-            versionNumber.add(e.getDate());
+            types.add(e.getType());
+            dates.add(e.getDate());
             if(e.getType().equals("Salary")){
                 images.add(String.valueOf(R.drawable.salary));
             }else if(e.getType().equals("Pocket Money")){
                 images.add(String.valueOf(R.drawable.pocketmoney));
             }else if(e.getType().equals("Refund")){
                 images.add(String.valueOf(R.drawable.refund));
+            }else if(e.getType().equals("Food")){
+                images.add(String.valueOf(R.drawable.food));
+            }else if(e.getType().equals("Shopping")){
+                images.add(String.valueOf(R.drawable.groceries));
+            }else if(e.getType().equals("Entertainment")){
+                images.add(String.valueOf(R.drawable.entertainment));
+            }else{
+                images.add(String.valueOf(R.drawable.ic_launcher_background));
             }
+
         }
         
 
 
-        lAdapter = new ListAdapter(getActivity(), version, versionNumber, images);
+        lAdapter = new ListAdapter(getActivity(), types, dates, images);
 
         lView.setAdapter(lAdapter);
+
 
 
         // Handle onClick event

@@ -33,7 +33,7 @@ import java.util.List;
  */
 public class Analysis extends Fragment {
 
-    public RecyclerView transactionsList;
+
     public TextView balanceNumberView;
     private DatabaseHandler db;
 
@@ -46,10 +46,8 @@ public class Analysis extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_analysis, container, false);
-        transactionsList = v.findViewById(R.id.transactionsList);
         balanceNumberView = v.findViewById(R.id.balanceNumberView);
 
-        transactionsList.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         db = new DatabaseHandler(getContext());
        // db.clear();
         display();
@@ -63,11 +61,10 @@ public class Analysis extends Fragment {
         db = new DatabaseHandler(getContext());
         ArrayList<Expense> expenses = db.getAllRows();
         if (expenses.size() > 0) {
-            transactionsList.setAdapter(new TransactionsAdapter(expenses, this.getContext()));
             balanceNumberView.setText(String.valueOf(total));
         }
         else {
-            makeToast("There is no contact in the database. Start adding now");
+            makeToast("Your lsit of expenses is empty");
         }
     }
 
