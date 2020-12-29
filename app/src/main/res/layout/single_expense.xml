@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="8dp">
+    android:padding="8dp"
+    android:background="@color/white">
 
     <ImageView
         android:id="@+id/appIconIV"
@@ -22,7 +23,9 @@
         android:layout_toRightOf="@+id/appIconIV"
         android:layout_toEndOf="@+id/appIconIV"
         android:layout_marginLeft="12dp"
-        android:layout_marginStart="12dp" />
+        android:layout_marginStart="12dp"
+        android:textColor="@color/black"
+        style="@style/Casual"/>
 
     <TextView
         android:id="@+id/aVersiontxt"
@@ -33,7 +36,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/aNametxt"
         android:layout_alignLeft="@+id/aNametxt"
-        android:layout_alignStart="@+id/aNametxt" />
+        android:layout_alignStart="@+id/aNametxt"
+        android:textColor="@color/black"
+        style="@style/Casual"/>
 
 
 

@@ -2,6 +2,7 @@ package com.example.expensetracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -64,8 +65,10 @@ public class ViewExpense extends AppCompatActivity {
         String id = String.valueOf(expense.getId());
         makeToast("Deleting Expense...");
         db.deleteItem(id);
-        Intent intent = new Intent(this, MainActivity.class);
-       startActivity(intent);
+      Intent intent = new Intent(this, List .class);
+//       startActivity(intent);
+        setResult(Activity.RESULT_OK,intent);
+        finish();
 
 
     }

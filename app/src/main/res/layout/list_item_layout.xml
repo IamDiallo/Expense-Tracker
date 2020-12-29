@@ -5,6 +5,7 @@
     android:orientation="horizontal"
     android:padding="8dp"
     android:weightSum="1.0"
+    android:background="@color/white"
     >
 
     <LinearLayout
@@ -17,13 +18,16 @@
             android:layout_height="wrap_content"
             android:id="@+id/timeText"
             android:textSize="16dp"
-            android:text="00:00:00"/>
+            android:text="00:00:00"
+            style="@style/Casual"/>
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/dateText"
             android:textSize="16dp"
-            android:text="20/00/0000" />
+            android:text="20/00/0000"
+            android:textColor="@color/black"
+            style="@style/Casual"/>
     </LinearLayout>
 
     <TextView
@@ -33,7 +37,9 @@
         android:layout_weight="0.4"
         android:text="Pocket Money"
         android:textSize="20dp"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/black"
+        style="@style/Casual"/>
     <TextView
         android:id="@+id/amountText"
         android:layout_width="0dip"
@@ -41,7 +47,9 @@
         android:layout_weight="0.35"
         android:gravity="right"
         android:text="10000.00"
-        android:textSize="24dp"/>
+        android:textSize="24dp"
+        android:textColor="@color/black"
+        style="@style/Casual"/>
 
 
 </LinearLayout>

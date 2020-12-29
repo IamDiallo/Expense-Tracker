@@ -154,4 +154,95 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL("DELETE from  expense WHERE id= '" +getID+ "'");
     }
 
+    //Select total Expense group by date for BarChar expence (queryXData(),queryYData)
+    public ArrayList<String> queryXData(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ArrayList<String> xData = new ArrayList<String>();
+        String query="SELECT "+KEY_DATE+ " FROM " + TABLE_EXPENSE+" WHERE "+KEY_MONTANT+">0 GROUP BY "+KEY_DATE;
+        Cursor cursor = db.rawQuery(query, null);
+
+        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()){
+            xData.add(cursor.getString(0));
+        }
+        cursor.close();
+        return xData;
+    }
+    public ArrayList<String> queryYData(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ArrayList<String> yData = new ArrayList<String>();
+        String query="SELECT SUM(" + KEY_MONTANT + ") FROM " + TABLE_EXPENSE+" WHERE "+KEY_MONTANT+" IS NOT NULL AND "+KEY_MONTANT+"<0 GROUP BY "+KEY_DATE;
+
+        Cursor cursor = db.rawQuery(query, null);
+
+        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()){
+            yData.add(cursor.getString(0));
+        }
+        cursor.close();
+        return yData;
+    }
+    //Select total Expense group by date for BarChar expence (queryXData1(),queryYData1)
+    public ArrayList<String> queryXData1(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ArrayList<String> xData = new ArrayList<String>();
+        String query="SELECT "+KEY_DATE+ " FROM " + TABLE_EXPENSE+" WHERE "+KEY_MONTANT+">0 GROUP BY "+KEY_DATE;
+        Cursor cursor = db.rawQuery(query, null);
+
+        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()){
+            xData.add(cursor.getString(0));
+        }
+        cursor.close();
+        return xData;
+    }
+    public ArrayList<String> queryYData1(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ArrayList<String> yData = new ArrayList<String>();
+        String query="SELECT SUM(" + KEY_MONTANT + ") FROM " + TABLE_EXPENSE+" WHERE "+KEY_MONTANT+" IS NOT NULL AND "+KEY_MONTANT+">0 GROUP BY "+KEY_DATE;
+
+        Cursor cursor = db.rawQuery(query, null);
+
+        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()){
+            yData.add(cursor.getString(0));
+        }
+        cursor.close();
+        return yData;
+    }
+
+    // PieData Query
+    public ArrayList<Expense> pieDataIncome(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ArrayList<Expense> pieData = new ArrayList<>();
+        String query="SELECT SUM(" + KEY_MONTANT + ") AS montant,"+KEY_TYPE+" FROM " + TABLE_EXPENSE+" WHERE "+KEY_MONTANT+" IS NOT NULL AND "+KEY_MONTANT+">0 GROUP BY "+KEY_TYPE;
+
+        Cursor cursor = db.rawQuery(query, null);
+
+        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()){
+            Expense e = new Expense();
+            e.setMontant(cursor.getDouble(0));
+            e.setType(cursor.getString(1));
+
+
+            pieData.add(e);
+        }
+        cursor.close();
+        return pieData;
+    }
+    public ArrayList<Expense> pieDataExpense(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ArrayList<Expense> pieData = new ArrayList<>();
+        String query="SELECT SUM(" + KEY_MONTANT + ") AS montant,"+KEY_TYPE+" FROM " + TABLE_EXPENSE+" WHERE "+KEY_MONTANT+" IS NOT NULL AND "+KEY_MONTANT+"<0 GROUP BY "+KEY_TYPE;
+
+        Cursor cursor = db.rawQuery(query, null);
+
+        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()){
+            Expense e = new Expense();
+            e.setMontant(cursor.getDouble(0));
+            e.setType(cursor.getString(1));
+
+
+            pieData.add(e);
+        }
+        cursor.close();
+        return pieData;
+    }
+
 }

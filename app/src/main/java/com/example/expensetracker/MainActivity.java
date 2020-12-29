@@ -66,6 +66,10 @@ public class MainActivity extends AppCompatActivity implements Transaction.Trans
     @Override
     public void onAddButtonClicked() {
         analysis.display();
+        analysis.addDataToBarChar();
+        analysis.addDataToBarChar1();
+        analysis.addDataToPieChar1();
+        analysis.addDataToPieChar();
     }
 
     class MyPagerAdapter extends FragmentPagerAdapter   {

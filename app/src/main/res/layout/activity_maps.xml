@@ -34,6 +34,7 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=" com.example.tp_1.MapsActivity" />
+        tools:context=" com.example.tp_1.MapsActivity"
+        style="@style/Casual"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

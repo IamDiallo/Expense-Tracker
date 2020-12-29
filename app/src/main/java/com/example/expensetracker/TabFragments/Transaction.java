@@ -119,7 +119,7 @@ public class Transaction extends Fragment implements View.OnClickListener, Adapt
         if (requestCode == LAUNCH_MAPS_ACTIVITY) {
             if(resultCode == Activity.RESULT_OK){
                 location =data.getStringExtra("result");
-               // makeToast(result);
+                // makeToast(result);
                 adress.setText(location);
             }
             if (resultCode == Activity.RESULT_CANCELED) {
@@ -143,7 +143,7 @@ public class Transaction extends Fragment implements View.OnClickListener, Adapt
                 incomeButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
 //                incomeButton.setTextColor(getResources().getColor(R.color.white));
 
-                expenseButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                expenseButton.setBackgroundColor(getResources().getColor(R.color.white));
 //                expenseButton.setTextColor(getResources().getColor(R.color.failure));
 
 
@@ -166,7 +166,7 @@ public class Transaction extends Fragment implements View.OnClickListener, Adapt
                 expenseButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
 //                expenseButton.setTextColor(getResources().getColor(R.color.white));
 
-                incomeButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                incomeButton.setBackgroundColor(getResources().getColor(R.color.white));
 //                incomeButton.setTextColor(getResources().getColor(R.color.success));
 
                 arraySpinner = new String[] {
@@ -221,8 +221,8 @@ public class Transaction extends Fragment implements View.OnClickListener, Adapt
                 categorySpinner.setSelection(0,true);
                 incomeButton.setSelected(false);
                 expenseButton.setSelected(false);
-                incomeButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
-                expenseButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                incomeButton.setBackgroundColor(getResources().getColor(R.color.white));
+                expenseButton.setBackgroundColor(getResources().getColor(R.color.white));
 
                 String[] def = new String[] {};
 
@@ -274,8 +274,8 @@ public class Transaction extends Fragment implements View.OnClickListener, Adapt
                     e.getTime() + " Type: " + e.getType() + ", Montant: " + e.getMontant()  + ", Adress: " + e.getAddress() ;
             Log.d(TAG, log);
         }
-      //  String total= Double.toString(db.getTotal());
-     //   Log.d(TAG, total);
+        //  String total= Double.toString(db.getTotal());
+        //   Log.d(TAG, total);
 
     }
 

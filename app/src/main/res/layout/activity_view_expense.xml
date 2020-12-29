@@ -14,7 +14,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="230dp"
-            android:background="@color/startblue"
+            android:background="@drawable/gradientbackground"
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -36,7 +36,8 @@
                 android:text="Expense Type"
                 android:textColor="#fff"
                 android:textSize="21sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                style="@style/Casual"/>
         </LinearLayout>
 
         <TextView
@@ -49,7 +50,8 @@
             android:text="EXPENSE DETAILS"
             android:textColor="@color/white"
             android:textSize="21sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            style="@style/Casual"/>
 
     </RelativeLayout>
 
@@ -79,7 +81,9 @@
                     android:paddingLeft="20dp"
                     android:text="Montant"
                     android:textStyle="bold"
-                    android:textSize="21sp"/>
+                    android:textSize="21sp"
+                    android:textColor="@color/black"
+                    style="@style/Casual"/>
             </LinearLayout>
 
             <LinearLayout
@@ -101,7 +105,9 @@
                     android:paddingLeft="20dp"
                     android:text="Date"
                     android:textStyle="bold"
-                    android:textSize="21sp"/>
+                    android:textSize="21sp"
+                    android:textColor="@color/black"
+                    style="@style/Casual"/>
             </LinearLayout>
 
             <LinearLayout
@@ -124,7 +130,9 @@
                     android:paddingLeft="20dp"
                     android:text="Time"
                     android:textStyle="bold"
-                    android:textSize="21sp"/>
+                    android:textSize="21sp"
+                    android:textColor="@color/black"
+                    style="@style/Casual"/>
             </LinearLayout>
 
             <LinearLayout
@@ -147,7 +155,9 @@
                     android:paddingLeft="20dp"
                     android:text="Address"
                     android:textStyle="bold"
-                    android:textSize="21sp"/>
+                    android:textSize="21sp"
+                    android:textColor="@color/black"
+                    style="@style/Casual"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -158,9 +168,11 @@
         android:layout_height="45dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="35dp"
-        android:background="@drawable/buttonstylewithgradient"
+        android:background="@drawable/gradientbackground"
         android:text="DELETE"
-        android:textColor="#fff" />
+        android:textColor="#fff"
+        android:textStyle="bold"
+        style="@style/Casual"/>
 
 
 
