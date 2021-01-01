@@ -6,9 +6,7 @@
         <item name="colorPrimary">@color/endblue</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
-
-
+        <item name="android:fontFamily">casual</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
 
@@ -35,6 +33,16 @@
         <item name="android:textStyle">bold</item>
 
 
+    </style>
+
+    <style name="buttonStyle" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:background">@drawable/buttonshape</item>
+    </style>
+
+    <style name="MineCustomTabText" parent="TextAppearance.Design.Tab">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">casual</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
 

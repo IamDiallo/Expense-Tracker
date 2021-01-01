@@ -126,7 +126,7 @@ public class Analysis extends Fragment {
             xVals.add(xData.get(i));
         }
 
-        BarDataSet dataSet = new BarDataSet(yVals,"Total expense par date");
+        BarDataSet dataSet = new BarDataSet(yVals,"Total Expense per Day");
         ArrayList<IBarDataSet> dataSets1 = new ArrayList<>();
         dataSets1.add(dataSet);
 
@@ -144,8 +144,8 @@ public class Analysis extends Fragment {
         xAxis.isCenterAxisLabelsEnabled();
         xAxis.setGranularityEnabled(true);
         xAxis.setTextColor(Color.BLACK);
-        xAxis.setTextColor(Color.BLACK);
         xAxis.setTextSize(15f);
+        xAxis.setEnabled(false);
 
 
         YAxis yAxis = barChart.getAxisRight();
@@ -183,7 +183,7 @@ public class Analysis extends Fragment {
             xVals.add(xData.get(i));
         }
 
-        BarDataSet dataSet = new BarDataSet(yVals,"Total income par date");
+        BarDataSet dataSet = new BarDataSet(yVals,"Total Income per Day");
         ArrayList<IBarDataSet> dataSets1 = new ArrayList<>();
         dataSets1.add(dataSet);
         dataSet.setValueTextSize(20f);
@@ -202,6 +202,7 @@ public class Analysis extends Fragment {
         xAxis.setGranularityEnabled(true);
         xAxis.setTextColor(Color.BLACK);
         xAxis.setTextSize(15f);
+        xAxis.setEnabled(false);
 
         YAxis yAxis = barChart1.getAxisLeft();
         yAxis.setEnabled(true);
@@ -215,7 +216,7 @@ public class Analysis extends Fragment {
 
         Legend l = barChart1.getLegend();
         l.setTextSize(15f);
-        l.setTextColor(Color.WHITE);
+        l.setTextColor(Color.BLACK);
         l.setForm(Legend.LegendForm.CIRCLE);
 
     }

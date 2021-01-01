@@ -1,6 +1,9 @@
 package com.example.expensetracker;
 
 import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,82 +29,57 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity implements Transaction.TransactionListener {
+public class MainActivity extends AppCompatActivity{
 
     private static final String TAG = "MainActivity";
-
-    ViewPager viewPager;
-    TabLayout tabLayout;
-
-    Transaction transaction;
-    Analysis analysis;
-    List list;
-    private DatabaseHandler db;
-
+    SharedPreferences myPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        viewPager = findViewById(R.id.viewPager);
-        tabLayout = findViewById(R.id.tabLayout);
+        myPrefs = this.getSharedPreferences("prefID", Context.MODE_PRIVATE);
+        String name = myPrefs.getString("nameKey", "name");
+        String amount = myPrefs.getString("amountkey", "amount");
+        if (name != null && amount != null )
+        {
+            Intent intent = new Intent(this, HomeActivity.class);
+            finish();
+            startActivity(intent);
+        }
 
-        transaction = new Transaction();
-        analysis = new Analysis();
-        list = new List();
 
-        MyPagerAdapter myPagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
-        tabLayout.setupWithViewPager(viewPager);
-        viewPager.setAdapter(myPagerAdapter);
-
-       // db = new DatabaseHandler(this);
-       // db.getWritableDatabase();
-       // db.clear();
     }
 
-    @Override
-    public void onAddButtonClicked() {
-        analysis.display();
-        analysis.addDataToBarChar();
-        analysis.addDataToBarChar1();
-        analysis.addDataToPieChar1();
-        analysis.addDataToPieChar();
+
+    public void Login(View view){
+
+        EditText nameText = findViewById(R.id.name);
+        EditText amountText =  findViewById(R.id.expenseAmount);
+        String name = nameText.getText().toString();
+        String amount = amountText.getText().toString();
+        Intent intent = new Intent(this, HomeActivity.class);
+
+        if(name.trim().equals("")){
+            nameText.setError("No name was Provided");
+            amountText.setHint("Please Enter your Name");
+        }else if(amount.trim().equals("")){
+            amountText.setError("No email was provided");
+            amountText.setHint("Please Enter your Email");
+        }else {
+
+            myPrefs.edit().remove("nameKey").commit();
+            myPrefs.edit().remove("emailKey").commit();
+            SharedPreferences.Editor editor = myPrefs.edit();
+            editor.putString("nameKey", nameText.getText().toString());
+            editor.putString("amountkey", amountText.getText().toString());
+
+            editor.apply();
+            startActivity(intent);
+        }
+
     }
-
-    class MyPagerAdapter extends FragmentPagerAdapter   {
-
-        String fragmentNames[] = {"Transaction", "Analysis", "List"};
-
-
-        public MyPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @NonNull
-        @Override
-        public Fragment getItem(int position) {
-            switch(position)    {
-                case 0: return transaction;
-                case 1: return analysis;
-                case 2: return list;
-                default: return null;
-            }
-        }
-
-        @Override
-        public int getCount() {
-            return fragmentNames.length;
-        }
-
-        @Nullable
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return fragmentNames[position];
-        }
-    }
-
 }

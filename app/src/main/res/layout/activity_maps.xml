@@ -18,7 +18,7 @@
         android:focusable="true"
         android:onClick="next"
         android:tint="@android:color/white"
-        app:backgroundTint="@color/colorAccent"
+        app:backgroundTint="@color/success"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.982"
