@@ -44,9 +44,9 @@ Expense Tracker is an application that allows you to keep track of your expenses
   to alert to user to check the report  
  
 <h2>Group Members: </h2> 
-  Name:DIALLO Mamadou Bella  
-  Email: mamadou-bella.diallo9@etu.cyu.fr  
-  DIAWARE Mourtalla Faty  
-  Email: mourtalla-faty.diawara@etu.cyu.fr
+  Name:DIALLO Mamadou Bella  </br>
+  Email: mamadou-bella.diallo9@etu.cyu.fr  </br>
+  Name:DIAWARE Mourtalla Faty  </br>
+  Email: mourtalla-faty.diawara@etu.cyu.fr 
 
 
